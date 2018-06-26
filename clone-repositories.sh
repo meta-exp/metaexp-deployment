@@ -1,3 +1,6 @@
+mkdir src/
+cd src
+
 ########### 32de-python
 git clone https://github.com/KDD-OpenSource/32de-python.git
 
