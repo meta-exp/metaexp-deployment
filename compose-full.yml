@@ -1,0 +1,48 @@
+version: "3"
+services:
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - "redisData:/data"
+  neo4j:
+    build:
+      context: src/neo4j-graph-algorithms
+      dockerfile: Dockerfile
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - "NEO4J_ACCEPT_LICENSE_AGREEMENT=yes"
+      - "NEO4J_AUTH=neo4j/test"
+    volumes:
+      - "./data:/data"
+      - "./logs:/logs"
+  backend:
+    build:
+      context: src/32de-python
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - "METAEXP_DEV=true"
+    depends_on:
+      - neo4j
+      - redis
+  interface:
+    build:
+      context: src/32de-UI
+      dockerfile: Dockerfile.dev
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    environment:
+      - "REACT_APP_API_HOST=http://localhost:8000/"
+    entrypoint:
+      - npm
+      - start
+
+volumes:
+  redisData:
