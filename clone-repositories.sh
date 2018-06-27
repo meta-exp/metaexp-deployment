@@ -1,3 +1,6 @@
+########### remove old code base, if exists
+rm -rf src/
+
 mkdir src/
 cd src
 
