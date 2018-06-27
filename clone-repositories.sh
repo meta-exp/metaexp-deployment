@@ -9,4 +9,3 @@ git clone -b alpha-dev https://github.com/KDD-OpenSource/neo4j-graph-algorithms.
 
 ########### 32de-UI
 git clone https://github.com/KDD-OpenSource/32de-UI.git
-export REACT_APP_API_HOST=http://localhost:8000/
