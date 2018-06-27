@@ -30,19 +30,26 @@ services:
     depends_on:
       - neo4j
       - redis
-  interface:
+  interface-dev:
     build:
       context: src/32de-UI
       dockerfile: Dockerfile.dev
     depends_on:
       - backend
-    ports:
-      - "3000:3000"
     environment:
       - "REACT_APP_API_HOST=http://localhost:8000/"
-    entrypoint:
-      - npm
-      - start
+  interface-production:
+    build:
+      context: src/32de-UI
+      dockerfile: Dockerfile.production
+    depends_on:
+      - interface-dev
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
 
 volumes:
   redisData:
