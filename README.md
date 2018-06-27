@@ -17,4 +17,5 @@
 # TODO
 - move nginx out of interface into own container, easy to run from Docker compose
 - Python backend: get config from environment/file, mount config file on container run
+- create Docker hub repository and make images available
 
