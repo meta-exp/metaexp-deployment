@@ -44,6 +44,8 @@ services:
       dockerfile: Dockerfile.production
     depends_on:
       - interface-dev
+    volumes:
+      - "productionUIData:/usr/src/pika/build/"
   server:
     build:
       context: .
@@ -52,6 +54,9 @@ services:
       - "80:80"
     depends_on:
       - interface-production
+    volumes:
+      - "productionUIData:/usr/share/nginx/html"
 
 volumes:
   redisData:
+  productionUIData:
