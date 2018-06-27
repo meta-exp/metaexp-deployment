@@ -41,6 +41,8 @@ services:
     entrypoint:
       - npm
       - start
+    ports:
+      - "3000:3000"
   # interface-production:
   #   build:
   #     context: src/32de-UI
