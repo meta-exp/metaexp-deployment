@@ -9,6 +9,9 @@
 ### run Docker compose
 - `docker-compose -f compose-full.yml up`
 
+### prepare data
+- call `localhost:8000/redis-import` and wait
+
 
 # Issues
 - interface does not see backend under hostname (works inside container from command line, `curl backend:8000/get-available-datasets`), interface does not get a response from same URL
