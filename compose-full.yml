@@ -17,8 +17,8 @@ services:
       - "NEO4J_ACCEPT_LICENSE_AGREEMENT=yes"
       - "NEO4J_AUTH=neo4j/test"
     volumes:
-      - "./data:/data"
-      - "./logs:/logs"
+      - ".neo4j_data/data:/data"
+      - ".neo4j_data/logs:/logs"
   backend:
     build:
       context: src/32de-python
