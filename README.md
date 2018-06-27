@@ -12,7 +12,7 @@
 ### prepare data
 - open neo4j `localhost:7474`, user `neo4j`, password `test`, add some data
 - call `localhost:8000/redis-import` and wait
-- call `http://localhost:8000/train-embeddings/DATABASE_NAME`, the database name is in the settings for available datasets in the backend container
+- call `http://localhost:8000/train-embeddings/DATABASE_NAME`, the database name is in the settings for available datasets in the backend container (utils/config.py, AVAILABLE_DATA_SETS constant)
 
 
 # Issues
