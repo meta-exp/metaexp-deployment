@@ -46,9 +46,8 @@ services:
       - interface-dev
     volumes:
       - "productionUIData:/usr/src/pika/build/"
-  server:
+  ui-server:
     build:
-      context: .
       dockerfile: Dockerfile
     ports:
       - "80:80"
