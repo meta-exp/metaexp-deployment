@@ -10,6 +10,7 @@
 - `docker-compose -f compose-full.yml up`
 
 ### prepare data
+- open neo4j `localhost:7474`, user `neo4j`, passoword `test`
 - call `localhost:8000/redis-import` and wait
 - call `http://localhost:8000/train-embeddings/DATABASE_NAME`, the database name is in the settings for available datasets in the backend container
 
