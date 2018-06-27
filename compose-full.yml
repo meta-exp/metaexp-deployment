@@ -38,23 +38,23 @@ services:
       - backend
     environment:
       - "REACT_APP_API_HOST=http://localhost:8000/"
-  interface-production:
-    build:
-      context: src/32de-UI
-      dockerfile: Dockerfile.production
-    depends_on:
-      - interface-dev
-    volumes:
-      - "productionUIData:/usr/src/pika/build/"
-  ui-server:
-    build:
-      dockerfile: Dockerfile
-    ports:
-      - "80:80"
-    depends_on:
-      - interface-production
-    volumes:
-      - "productionUIData:/usr/share/nginx/html"
+  # interface-production:
+  #   build:
+  #     context: src/32de-UI
+  #     dockerfile: Dockerfile.production
+  #   depends_on:
+  #     - interface-dev
+  #   volumes:
+  #     - "productionUIData:/usr/src/pika/build/"
+  # ui-server:
+  #   build:
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - interface-production
+  #   volumes:
+  #     - "productionUIData:/usr/share/nginx/html"
 
 volumes:
   redisData:
